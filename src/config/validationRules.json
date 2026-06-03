@@ -1,0 +1,104 @@
+{
+  "aadhar": {
+    "rules": [
+      {
+        "id": "aadhar_format",
+        "field": "aadharNumber",
+        "type": "regex",
+        "pattern": "^[0-9]{12}$",
+        "message": "Aadhaar must be exactly 12 digits"
+      },
+      {
+        "id": "aadhar_verhoeff",
+        "field": "aadharNumber",
+        "type": "checksum",
+        "algorithm": "verhoeff",
+        "message": "Aadhaar checksum validation failed (Verhoeff algorithm)"
+      },
+      {
+        "id": "name_required",
+        "field": "name",
+        "type": "required",
+        "message": "Name is required"
+      },
+      {
+        "id": "dob_required",
+        "field": "dateOfBirth",
+        "type": "required",
+        "message": "Date of birth is required"
+      },
+      {
+        "id": "gender_required",
+        "field": "gender",
+        "type": "required",
+        "message": "Gender is required"
+      },
+      {
+        "id": "gender_valid",
+        "field": "gender",
+        "type": "enum",
+        "values": ["Male", "Female", "Transgender", "Other"],
+        "message": "Gender must be Male, Female, Transgender, or Other"
+      }
+    ]
+  },
+  "pan": {
+    "rules": [
+      {
+        "id": "pan_format",
+        "field": "panNumber",
+        "type": "regex",
+        "pattern": "^[A-Z]{5}[0-9]{4}[A-Z]{1}$",
+        "message": "Invalid PAN format (must be 5 letters, 4 digits, 1 letter)"
+      },
+      {
+        "id": "pan_checksum",
+        "field": "panNumber",
+        "type": "custom",
+        "validator": "validatePANStructure",
+        "message": "PAN structure validation failed"
+      },
+      {
+        "id": "name_required",
+        "field": "name",
+        "type": "required",
+        "message": "Name is required"
+      },
+      {
+        "id": "dob_required",
+        "field": "dateOfBirth",
+        "type": "required",
+        "message": "Date of birth is required"
+      }
+    ]
+  },
+  "salary_slip": {
+    "rules": [
+      {
+        "id": "employee_name_required",
+        "field": "employeeName",
+        "type": "required",
+        "message": "Employee name is required"
+      },
+      {
+        "id": "netpay_required",
+        "field": "netPay",
+        "type": "required",
+        "message": "Net pay is required"
+      },
+      {
+        "id": "netpay_calculation",
+        "field": "netPay",
+        "type": "custom",
+        "validator": "validateNetPayCalculation",
+        "message": "Net pay does not match earnings minus deductions"
+      },
+      {
+        "id": "date_required",
+        "field": "date",
+        "type": "required",
+        "message": "Salary slip date is required"
+      }
+    ]
+  }
+}

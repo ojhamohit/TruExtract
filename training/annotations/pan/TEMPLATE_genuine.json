@@ -1,0 +1,15 @@
+{
+  "filename": "genuine_pan_001.jpg",
+  "documentType": "pan",
+  "isTampered": false,
+  "confidence": 0.93,
+  "issues": [],
+  "extractedData": {
+    "panNumber": "ABCDE1234F",
+    "name": "Full Name Here",
+    "fathersName": "Father Full Name",
+    "dateOfBirth": "01/01/1990"
+  },
+  "genuineReason": "PAN format correct (5 letters + 4 digits + 1 letter), 4th character 'D' is valid, all fields present, no visual artifacts",
+  "notes": "Standard genuine PAN card example"
+}

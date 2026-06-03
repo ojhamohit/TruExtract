@@ -1,0 +1,119 @@
+[
+  {
+    "id": "aadhaar_checksum_fail",
+    "type": "logical",
+    "documentType": "aadhaar",
+    "description": "Aadhaar number fails Verhoeff checksum validation",
+    "field": "aadharNumber",
+    "severity": "high",
+    "indicators": ["checksum", "verhoeff", "invalid"]
+  },
+  {
+    "id": "aadhaar_font_mismatch",
+    "type": "visual",
+    "documentType": "aadhaar",
+    "description": "Font inconsistency detected in name or address field",
+    "severity": "high",
+    "indicators": ["multiple fonts", "font change", "typography mismatch"]
+  },
+  {
+    "id": "aadhaar_fake_number_pattern",
+    "type": "logical",
+    "documentType": "aadhaar",
+    "description": "Aadhaar number follows suspicious pattern (e.g., all same digits, sequential)",
+    "field": "aadharNumber",
+    "regex": "(\\d)\\1{11}|123456789012|000000000000",
+    "severity": "high"
+  },
+  {
+    "id": "pan_invalid_4th_char",
+    "type": "logical",
+    "documentType": "pan",
+    "description": "PAN 4th character is not valid (must be P/C/H/F/A/T/B/L/J/G)",
+    "field": "panNumber",
+    "severity": "high",
+    "indicators": ["invalid pan structure", "4th character"]
+  },
+  {
+    "id": "pan_fake_pattern",
+    "type": "logical",
+    "documentType": "pan",
+    "description": "PAN follows fake pattern (e.g., ABCDE1234F)",
+    "field": "panNumber",
+    "regex": "ABCDE\\d{4}[A-Z]",
+    "severity": "medium"
+  },
+  {
+    "id": "salary_math_error",
+    "type": "logical",
+    "documentType": "salary_slip",
+    "description": "Net pay calculation doesn't match earnings minus deductions",
+    "severity": "high",
+    "indicators": ["calculation error", "math mismatch", "net pay incorrect"]
+  },
+  {
+    "id": "date_future",
+    "type": "logical",
+    "documentType": "all",
+    "description": "Document contains future dates (impossible)",
+    "severity": "high",
+    "indicators": ["future date", "2027", "2028", "2029", "2030"]
+  },
+  {
+    "id": "watermark_removed",
+    "type": "visual",
+    "documentType": "all",
+    "description": "Official watermark appears to be removed or altered",
+    "severity": "high",
+    "indicators": ["missing watermark", "watermark altered", "no security features"]
+  },
+  {
+    "id": "low_quality_scan",
+    "type": "metadata",
+    "documentType": "all",
+    "description": "Suspiciously low quality or heavily compressed (common in fakes)",
+    "severity": "medium",
+    "indicators": ["low resolution", "heavy compression", "pixelated", "blurry"]
+  },
+  {
+    "id": "qr_code_missing_aadhaar",
+    "type": "visual",
+    "documentType": "aadhaar",
+    "description": "QR code missing from back of Aadhaar (all genuine cards have QR)",
+    "severity": "high",
+    "indicators": ["no qr", "missing qr code", "qr absent"]
+  },
+  {
+    "id": "address_too_short",
+    "type": "logical",
+    "documentType": "aadhaar",
+    "description": "Address is suspiciously short (less than 20 characters)",
+    "field": "address",
+    "severity": "medium"
+  },
+  {
+    "id": "name_special_chars",
+    "type": "logical",
+    "documentType": "all",
+    "description": "Name contains suspicious special characters or numbers",
+    "field": "name",
+    "regex": "[^a-zA-Z\\s.]",
+    "severity": "medium"
+  },
+  {
+    "id": "duplicate_text_blocks",
+    "type": "text",
+    "documentType": "all",
+    "description": "Text appears duplicated or copy-pasted (sign of forgery)",
+    "severity": "medium",
+    "indicators": ["duplicate text", "repeated content", "copy paste"]
+  },
+  {
+    "id": "missing_required_field",
+    "type": "logical",
+    "documentType": "all",
+    "description": "Required field is completely missing from document",
+    "severity": "high",
+    "indicators": ["missing field", "incomplete document"]
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "filename": "genuine_aadhaar_001.jpg",
+  "documentType": "aadhaar",
+  "isTampered": false,
+  "confidence": 0.95,
+  "issues": [],
+  "extractedData": {
+    "aadharNumber": "234567890126",
+    "name": "Sample Person",
+    "fatherName": "Father Name",
+    "dateOfBirth": "01/01/1990",
+    "gender": "Male",
+    "address": "House No 123, Street Name, Sector 45, City Name, State, 560001",
+    "pincode": "560001"
+  },
+  "genuineReason": "All fields consistent, Verhoeff checksum passes, QR code present, no visual artifacts, address format valid",
+  "notes": "Good example of genuine Aadhaar card with all standard fields"
+}

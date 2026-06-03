@@ -1,0 +1,35 @@
+{
+  "filename": "tampered_aadhaar_001.jpg",
+  "documentType": "aadhaar",
+  "isTampered": true,
+  "confidence": 0.92,
+  "issues": [
+    {
+      "type": "checksum",
+      "field": "aadharNumber",
+      "description": "Aadhaar number fails Verhoeff checksum validation",
+      "severity": "high"
+    },
+    {
+      "type": "visual",
+      "field": "name",
+      "description": "Font mismatch detected - name appears to be edited",
+      "severity": "high"
+    },
+    {
+      "type": "visual",
+      "field": "photo",
+      "description": "Photo quality inconsistent with rest of document",
+      "severity": "medium"
+    }
+  ],
+  "extractedData": {
+    "aadharNumber": "123456789012",
+    "name": "Fake Name",
+    "dateOfBirth": "15/08/1985",
+    "gender": "Male",
+    "address": "Fake Address"
+  },
+  "tamperedReason": "Aadhaar checksum invalid (fails Verhoeff), font inconsistency in name field suggests digital editing, address is too short and generic",
+  "notes": "Clear example of tampered Aadhaar - multiple red flags"
+}
